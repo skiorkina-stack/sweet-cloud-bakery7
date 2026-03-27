@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Script font for title -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- Clean rounded font for buttons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #fff2cc;
+      --text-color: #5a3a1a;
+      --card-bg: #ffffff;
+
+      --button-brown: #8b5a2b;
+      --button-brown-hover: #73451f;
+
+      --star-brown: #a47148;
+    }
+
+    body.dark {
+      --bg-color: #2b2418;
+      --text-color: #ffffff;
+      --card-bg: #3a2f20;
+
+      --button-brown: #b07a45;
+      --button-brown-hover: #8f5f32;
+
+      --star-brown: #c8a27a;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Pacifico', cursive;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+
+      background-image:
+        radial-gradient(circle at 10px 10px, transparent 6px, var(--star-brown) 7px, transparent 8px),
+        radial-gradient(circle at 30px 30px, transparent 6px, var(--star-brown) 7px, transparent 8px),
+        radial-gradient(circle at 50px 10px, transparent 6px, var(--star-brown) 7px, transparent 8px);
+      background-size: 60px 60px;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      position: relative;
+      text-align: center;
+      padding: 25px 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .buttons {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    /* SMALLER HEADER BUTTONS */
+    .pill-btn {
+      background: var(--button-brown);
+      color: #ffffff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .pill-btn:hover {
+      background: var(--button-brown-hover);
+      transform: scale(1.05);
+    }
+
+    /* ---------- CONTACT BOX ---------- */
+    .contact-box {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 45px;
+      background: var(--card-bg);
+      border-radius: 35px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+      text-align: center;
+    }
+
+    .contact-box p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    /* ---------- SOCIAL BUTTONS ---------- */
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 15px 28px;
+      border-radius: 30px;
+      color: #020000;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .contact-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+
+    /* ---------- PLATFORM COLORS ---------- */
+    .instagram {
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+    }
+
+    .facebook {
+      background: #1877f2;
+    }
+
+    .whatsapp {
+      background: #25d366;
+    }
+
+    .email {
+      background: #6c63ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="buttons">
+    <button class="pill-btn" onclick="window.location.href='index.html'">← Return</button>
+    <button class="pill-btn" onclick="toggleDark()">🌙</button>
+  </div>
+
+  <h1>Contact</h1>
+</header>
+
+<section class="contact-box">
+  <p>You can contact us through any of the following:</p>
+
+  <div class="contact-links">
+    <a class="contact-link instagram"href="https://www.instagram.com/sweet_cloud_bakery1?igsh=emw5N3M4aXVwZng=" target="_blank"> Instagram</a>
+    <a class="contact-link facebook" href="https://www.facebook.com/share/17dVgNAHVK/" target="_blank"> Facebook</a>
+    <a class="contact-link whatsapp" href="https://wa.me/6049426" target="_blank" ree="noopener"> WhatsApp</a>
+    <a class="contact-link email"    href="mailto:sweetcloudbakery06@gmail.com"> E-mail</a>
+  </div>
+</section>
+
+<script>
+  function toggleDark() {
+    document.body.classList.toggle('dark');
+  }
+</script>
+
+</body>
+</html>
