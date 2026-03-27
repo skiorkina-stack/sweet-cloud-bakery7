@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Staff</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =====================
+       THEME VARIABLES
+    ===================== */
+    :root {
+      --bg-color: #ffd6e8;
+      --card-bg: #ffffff;
+      --text-color: #000000;
+      --shadow: rgba(0,0,0,0.15);
+      --button-bg: #ff8fb1;
+      --button-text: #ffffff;
+    }
+
+    body.dark {
+      --bg-color: #1e1e1e;
+      --card-bg: #2c2c2c;
+      --text-color: #f5f5f5;
+      --shadow: rgba(255,255,255,0.1);
+      --button-bg: #ff6f9c;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      background-image: url('cupcake-pattern.png'); /* optional */
+      background-repeat: repeat;
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    /* =====================
+       TOP BUTTONS
+    ===================== */
+    .top-buttons {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      display: flex;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    .top-buttons button,
+    .top-buttons a {
+      background: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      border-radius: 20px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .top-buttons button:hover,
+    .top-buttons a:hover {
+      opacity: 0.85;
+    }
+
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      padding: 40px;
+    }
+
+    .staff-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px var(--shadow);
+      transition: background 0.3s;
+    }
+
+    .staff-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .role {
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    textarea {
+      width: 100%;
+      border-radius: 10px;
+      padding: 8px;
+      margin-top: 8px;
+      border: none;
+      resize: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP CONTROLS -->
+  <div class="top-buttons">
+    <a href="index.html">← Return</a>
+    <button onclick="toggleDark()">🌙 Dark Mode</button>
+  </div>
+
+  <h1>Our Staff</h1>
+
+  <div class="staff-grid">
+
+    <div class="staff-card">
+      <img src="Anelys.jpg" alt="Staff 1">
+      <div class="role">Head Baker</div>
+      <textarea placeholder="Leads the kitchen with care and expertise, ensuring every recipe is baked to perfection while preserving our family traditions."></textarea>
+    </div>
+
+    <div class="staff-card">
+      <img src="Zulady.jpg" alt="Staff 2">
+      <div class="role">Pastry Chef</div>
+      <textarea placeholder="Creates delightful pastries and desserts, blending classic flavors with creative touches to make each treat special."></textarea>
+    </div>
+
+    <div class="staff-card">
+      <img src="Ime.jpg" alt="Staff 3">
+      <div class="role">Decorator</div>
+      <textarea placeholder="Brings our baked goods to life with beautiful designs, adding the final artistic touch that makes every item visually sweet."></textarea>
+    </div>
+
+    <div class="staff-card">
+      <img src="Iker.jpg" alt="Staff 4">
+      <div class="role">Kitchen Assistant</div>
+      <textarea placeholder="Supports the baking team by preparing ingredients, keeping the kitchen organized, and helping everything run smoothly."></textarea>
+    </div>
+
+    <div class="staff-card">
+      <img src="Jos.jpg" alt="Staff 5">
+      <div class="role">Cashier</div>
+      <textarea placeholder="Greets customers with a warm smile, handles orders and payments, and ensures everyone leaves Sweet Cloud Bakery feeling welcomed and appreciated."></textarea>
+    </div>
+
+    <div class="staff-card">
+      <img src="Laurencio.jpg" alt="Staff 6">
+      <div class="role">Barista</div>
+      <textarea placeholder="Crafts comforting drinks to perfectly pair with our baked treats, serving each cup with warmth and a friendly smile."></textarea>
+    </div>
+
+    <div class="staff-card">
+      <img src="Kiorkina.jpg" alt="Staff 7">
+      <div class="role">Manager</div>
+      <textarea placeholder="Oversees daily operations, supports the team, and ensures Sweet Cloud Bakery remains a welcoming place for both staff and customers."></textarea>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleDark() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+
+</body>
+</html>
