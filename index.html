@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sweet Cloud Bakery</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root{
+      --pink:#ff7fb3; --pink-2:#ffb6d9; --blue:#bfe9ff; --cream:#fff4e6; --card:#ffffff;
+      --glass: rgba(255,255,255,0.75);
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Poppins',system-ui,Arial; margin:0; background:linear-gradient(180deg,var(--cream),#fff); color:#333}
+
+    header{background:linear-gradient(90deg,var(--pink-2),#ffdfe8);padding:18px 20px;position:sticky;top:0;z-index:50;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo img{width:64px;height:64px}
+    .site-title{font-family:'Pacifico',cursive;color:#e7306a;font-size:1.9rem;letter-spacing:0.5px}
+    nav{display:flex;gap:8px;align-items:center}
+    nav a, #darkModeToggle{padding:10px 14px;border-radius:24px;text-decoration:none;color:#6b2540;font-weight:600;background:var(--glass);border:2px solid rgba(255,255,255,0.6);transition:all .22s;cursor:pointer}
+    nav a:hover, #darkModeToggle:hover{transform:translateY(-4px);box-shadow:0 8px 18px rgba(183,69,106,0.12)}
+
+    .header-scallop{height:28px;width:100%;background:radial-gradient(circle at 20px -8px,#fff 18px,transparent 19px) repeat-x;background-size:36px 36px;margin-top:-6px}
+
+    .hero{max-width:1200px;margin:20px auto;padding:40px;background:linear-gradient(135deg,var(--blue),#e9fff9);border-radius:18px;display:flex;gap:20px;align-items:center;box-shadow:0 10px 30px rgba(130,90,120,0.06);overflow:hidden}
+    .hero-left{flex:1;padding:20px}
+    .hero h1{font-family:'Pacifico',cursive;color:#c82d63;margin:0;font-size:3rem}
+    .hero p{margin:10px 0 18px;font-size:1.05rem}
+    .hero-actions{display:flex;gap:12px}
+    .btn{background:var(--pink);color:white;border:none;padding:12px 20px;border-radius:28px;cursor:pointer;font-weight:700}
+    .btn.alt{background:transparent;border:2px solid var(--pink);color:var(--pink)}
+
+    .hero-right{flex:1}
+    .hero-right img{width:100%;height:320px;object-fit:cover;border-radius:12px;box-shadow:0 8px 22px rgba(0,0,0,0.08)}
+
+    .card{background:var(--card);border-radius:12px;padding:18px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,0.05);border:1px solid rgba(0,0,0,0.03)}
+
+    .floating-shapes{position:fixed;left:0;top:60vh;pointer-events:none;width:100%;height:40vh;z-index:2}
+    .float-dot{position:absolute;border-radius:50%;opacity:0.12;animation:floaty 8s ease-in-out infinite}
+    .fd1{width:80px;height:80px;background:var(--pink-2);left:6%;top:5%;animation-duration:14s}
+    .fd2{width:55px;height:55px;background:var(--blue);right:8%;top:10%;animation-duration:10s}
+    .fd3{width:60px;height:60px;background:#ffeaa7;left:40%;top:20%;animation-duration:12s}
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-22px)}100%{transform:translateY(0)}}
+
+    .ribbon{display:inline-block;background:var(--pink);color:white;padding:8px 18px;border-radius:6px;font-weight:700;position:relative}
+    .ribbon:before,.ribbon:after{content:'';position:absolute;bottom:-10px;border:8px solid transparent}
+    .ribbon:before{left:6px;border-top-color:var(--pink)}
+    .ribbon:after{right:6px;border-top-color:var(--pink)}
+
+    /* responsive */
+    @media(max-width:900px){.hero{flex-direction:column}.hero-right img{height:260px}.hero h1{font-size:2.2rem}.header-inner{flex-direction:column;gap:8px}nav{flex-wrap:wrap;justify-content:center}}
+    @media(max-width:520px){nav a, #darkModeToggle{padding:8px 10px;font-size:14px}.site-title{font-size:1.4rem}}
+
+    /* Dark Mode */
+    body.dark {
+      --pink: #ff7fb3;
+      --pink-2: #ffb6d9;
+      --blue: #2a2f4a;
+      --cream: #1e1e1e;
+      --card: #2b2b2b;
+      --glass: rgba(50,50,50,0.6);
+      color: #f0f0f0;
+      background: linear-gradient(180deg,var(--cream),#121212);
+    }
+    body.dark header {
+      background: linear-gradient(90deg,#42263a,#6b2540);
+      color: #f0f0f0;
+    }
+    body.dark nav a, body.dark #darkModeToggle{
+      color: #f0f0f0;
+      background: var(--glass);
+      border-color: rgba(255,255,255,0.2);
+    }
+    body.dark .hero{
+      background: linear-gradient(135deg,var(--blue),#2b2b2b);
+    }
+    body.dark footer{
+      background: linear-gradient(90deg,#42263a,#6b2540);
+      color:#f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- floating decorations -->
+  <div class="floating-shapes">
+    <div class="float-dot fd1"></div>
+    <div class="float-dot fd2"></div>
+    <div class="float-dot fd3"></div>
+  </div>
+
+  <!-- Header & Nav -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <img src="Logo.jpg" alt="Logo">
+        <div>
+          <div class="site-title">Sweet Cloud Bakery</div>
+          <div style="font-size:12px;color:#6c5463">Fresh daily • Cakes & Cupcakes</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="About Us.html">About</a> 
+        <a href="Our Staff.html">Staff</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="Contact.html">Contact</a>
+        <a href="Location.html">Location</a>
+        <button id="darkModeToggle">🌙 Dark Mode</button>
+      </nav>
+    </div>
+  </header>
+  <div class="header-scallop"></div>
+
+  <!-- HERO -->
+  <section class="hero container">
+    <div class="hero-left">
+      <div class="ribbon">BEST SELLER</div>
+      <h1>Handmade Pastries</h1>
+      <p>Welcome to Sweet Cloud Bakery where every pastry feels like a bite of heaven. Light as a cloud, sweet as a dream. </p>
+      <div class="hero-actions">
+        <button class="btn">Place Order</button>
+        <button class="btn alt">Learn More</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="pastries.jpg" alt="pastries">
+    </div>
+  </section>
+
+  <footer style="margin-top:30px;padding:22px 18px;background:linear-gradient(90deg,var(--pink-2),#ffdfe8);color:#6b2540;text-align:center">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>© 2025 Sweet Cloud Bakery</div>
+      <div class="socials">
+        <a href="https://www.facebook.com/share/17dVgNAHVK/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/sweet_cloud_bakery1?igsh=emw5N3M4aXVwZng" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/6049426" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:sweetcloudbakery06@gmail.com" aria-label="Email"><i class="fa fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    const toggle = document.getElementById('darkModeToggle');
+    if(localStorage.getItem('darkMode')==='true'){document.body.classList.add('dark');}
+    toggle.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    toggle.addEventListener('click', ()=>{
+      document.body.classList.toggle('dark');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+      toggle.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+
+    function exitSite(){if(window.close){window.close();}else{alert('To exit, close this tab or window.');}}
+  </script>
+</body>
+</html>
